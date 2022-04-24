@@ -3,9 +3,92 @@
 
 #include <iostream>
 
+std::string encrypt_caesar(std::string str, int num)
+{
+    for (int i = 0; i < str.length(); i++)
+    {
+        if (str[i] <= 'z' && str[i] >= 'a')
+        {
+            str[i] += num;
+            while (str[i] < 'a' || str[i] > 'z')
+            {
+                if (str[i] > 'z')
+                {
+                    str[i] -= 26;
+                }
+                else
+                {
+                    str[i] += 26;
+                }
+            }
+        }
+        if (str[i] <= 'Z' && str[i] >= 'A')
+        {
+            str[i] += num;
+            while (str[i] < 'A' || str[i] > 'Z')
+            {
+                if (str[i] > 'Z')
+                {
+                    str[i] -= 26;
+                }
+                else
+                {
+                    str[i] += 26;
+                }
+            }
+        }
+    }
+    return str;
+}
+
+std::string decrypt_caesar(std::string str, int num)
+{
+    for (int i = 0; i < str.length(); i++)
+    {
+        if (str[i] <= 'z' && str[i] >= 'a')
+        {
+            str[i] -= num;
+            while (str[i] < 'a' || str[i] > 'z')
+            {
+                if (str[i] > 'z')
+                {
+                    str[i] -= 26;
+                }
+                else
+                {
+                    str[i] += 26;
+                }
+            }
+        }
+        if (str[i] <= 'Z' && str[i] >= 'A')
+        {
+            str[i] -= num;
+            while (str[i] < 'A' || str[i] > 'Z')
+            {
+                if (str[i] > 'Z')
+                {
+                    str[i] -= 26;
+                }
+                else
+                {
+                    str[i] += 26;
+                }
+            }
+        }
+    }
+    return str;
+}
+
 int main()
 {
-    std::cout << "Hello World!\n";
+    std::string str;
+    int num;
+    std::cout << "input string and number: \n";
+    std::cin >> str >> num;
+    str = encrypt_caesar(str, num);
+    std::cout << str << '\n';
+    str = decrypt_caesar(str, num);
+    std::cout << str;
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
