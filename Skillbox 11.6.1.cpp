@@ -2,6 +2,7 @@
 //
 
 #include <iostream>
+#include <string>
 
 std::string encrypt_caesar(std::string str, int num)
 {
@@ -83,8 +84,10 @@ int main()
 {
     std::string str;
     int num;
-    std::cout << "input string and number: \n";
-    std::cin >> str >> num;
+    std::cout << "input string: \n";
+    std::getline(std::cin, str);
+    std::cout << "input number: \n";
+    std::cin >> num;
     str = encrypt_caesar(str, num);
     std::cout << str << '\n';
     str = decrypt_caesar(str, num);
