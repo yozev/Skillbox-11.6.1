@@ -44,7 +44,10 @@ std::string encrypt_caesar(std::string str, int num)
 
 std::string decrypt_caesar(std::string str, int num)
 {
-    for (int i = 0; i < str.length(); i++)
+
+    num = -1 * num;
+    str = encrypt_caesar(str, num); //добавил возможность реальзации через вызов функции
+    /*for (int i = 0; i < str.length(); i++)
     {
         if (str[i] <= 'z' && str[i] >= 'a')
         {
@@ -76,7 +79,7 @@ std::string decrypt_caesar(std::string str, int num)
                 }
             }
         }
-    }
+    }*/
     return str;
 }
 
